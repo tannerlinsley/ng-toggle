@@ -1,5 +1,7 @@
 # nz-toggle
 
+[![Join the chat at https://gitter.im/tannerlinsley/nz-toggle](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tannerlinsley/nz-toggle?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 __Double and Triple-State Toggle for Angular__
 
 ## Features
