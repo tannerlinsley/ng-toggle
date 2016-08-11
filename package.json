@@ -2,20 +2,20 @@
     "name": "nz-toggle",
     "version": "2.2.1",
     "description": "__Double and Triple-State Toggle for AngularJS__",
-    "main": ["dist/nz-toggle.js", "dist/nz-toggle.css"],
+    "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/nozzle/nz-toggle.git"
+        "url": "git+https://github.com/tannerlinsley/nz-toggle.git"
     },
     "author": "Tanner Linsley <tannerlinsley@gmail.com>",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/nozzle/nz-toggle/issues"
+        "url": "https://github.com/tannerlinsley/nz-toggle/issues"
     },
-    "homepage": "https://github.com/nozzle/nz-toggle",
+    "homepage": "https://github.com/tannerlinsley/nz-toggle",
     "dependencies": {
         "gulp": "^3.9.0",
         "gulp-ng-annotate": "^1.0.0",
