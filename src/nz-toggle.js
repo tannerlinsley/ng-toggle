@@ -1,5 +1,13 @@
 (function() {
+    
     var module = angular.module('nzToggle', []);
+    
+    if (typeof exports != 'undefined' && !exports.nodeType) {
+    if (typeof module != 'undefined' && !module.nodeType && module.exports) {
+      exports = module.exports = module.name;
+    }
+      exports[module.name] = module;
+    }
 
     module.directive('nzToggle', ['$timeout', function($timeout) {
         return {
