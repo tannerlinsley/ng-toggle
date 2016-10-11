@@ -2,7 +2,7 @@
     "name": "nz-toggle",
     "version": "2.2.1",
     "description": "__Double and Triple-State Toggle for AngularJS__",
-    "main": ["dist/nz-toggle.js", "dist/nz-toggle.css"],
+    "main": "dist/nz-toggle.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
