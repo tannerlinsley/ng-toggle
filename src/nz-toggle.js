@@ -111,12 +111,6 @@
                             first = false;
                             return;
                         }
-                        if (vm.onToggle.call) {
-                            var res = vm.onToggle();
-                            if (res && res.call) {
-                                res(vm.ngModel);
-                            }
-                        }
                     }, true);
 
                     // Interaction events
@@ -397,28 +391,35 @@
 
                 function toggle(state) {
                     if (vm.ngDisabled) return;
+					var originState = copy(vm.ngModel);
 
+					if (!state) {
+						if (vm.state == 'false') {
+							vm.ngModel = vm.triToggle ? vm.valNull : vm.valTrue;
+							return;
+						} else if (vm.state == 'null') {
+							vm.ngModel = vm.valTrue;
+							return;
+						} else {
+							vm.ngModel = vm.valFalse;
+						}
+					} else {
+						vm.state = state;
+						if (state === 'false') {
+							vm.ngModel = vm.valFalse;
+							return;
+						} else if (state === 'null') {
+							vm.ngModel = vm.valNull;
+							return;
+						} else {
+							vm.ngModel = vm.valTrue;
+						}
+					}
                     $timeout(function() {
-                        if (!state) {
-                            if (vm.state == 'false') {
-                                vm.ngModel = vm.triToggle ? vm.valNull : vm.valTrue;
-                                return;
-                            } else if (vm.state == 'null') {
-                                vm.ngModel = vm.valTrue;
-                                return;
-                            } else {
-                                vm.ngModel = vm.valFalse;
-                            }
-                        } else {
-                            vm.state = state;
-                            if (state === 'false') {
-                                vm.ngModel = vm.valFalse;
-                                return;
-                            } else if (state === 'null') {
-                                vm.ngModel = vm.valNull;
-                                return;
-                            } else {
-                                vm.ngModel = vm.valTrue;
+                        if (vm.onToggle.call && originState != vm.ngModel) {
+                            var res = vm.onToggle();
+                            if (res && res.call) {
+                                res(vm.ngModel);
                             }
                         }
                     });
