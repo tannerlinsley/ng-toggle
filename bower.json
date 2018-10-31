@@ -1,8 +1,8 @@
 {
-    "name": "nz-toggle",
+    "name": "mf-toggle",
     "main": ["dist/nz-toggle.js", "dist/nz-toggle.css"],
-    "version": "2.2.1",
-    "homepage": "https://github.com/nozzle/nz-toggle",
+    "version": "2.2.5",
+    "homepage": "https://github.com/MetaFactory/nz-toggle",
     "authors": [
         "tannerlinsley"
     ],
@@ -23,5 +23,8 @@
         "bower_components",
         "test",
         "tests"
-    ]
+    ],
+    "dependencies": {
+        "angular": ">=1.5.8"
+    }
 }
