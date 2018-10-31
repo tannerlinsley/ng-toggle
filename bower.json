@@ -1,7 +1,7 @@
 {
     "name": "nz-toggle",
     "main": ["dist/nz-toggle.js", "dist/nz-toggle.css"],
-    "version": "2.2.3",
+    "version": "2.2.4",
     "homepage": "https://github.com/MetaFactory/nz-toggle",
     "authors": [
         "tannerlinsley"
