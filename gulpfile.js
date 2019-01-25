@@ -12,11 +12,11 @@ var prodFolder = './prod/';
 // Build Tasks //
 gulp.task(js);
 gulp.task(less);
-gulp.task('build', gulp.parallel(js, less));
 gulp.task(watch);
+gulp.task('build', gulp.parallel(js, less));
 
 // Default //
-gulp.task('default', watch);
+gulp.task('default', gulp.series(gulp.parallel(js, less), watch));
 
 
 
