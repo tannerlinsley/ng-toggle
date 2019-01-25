@@ -8,29 +8,31 @@ var rename = require('gulp-rename');
 var appFolder = './app/';
 var prodFolder = './prod/';
 
-gulp.task('watch', watchTask);
 
 // Build Tasks //
-gulp.task('js', jsTask);
-gulp.task('less', lessTask);
-gulp.task('build', ['js', 'less']);
+gulp.task(js);
+gulp.task(less);
+gulp.task(watch);
+gulp.task('build', gulp.parallel(js, less));
 
 // Default //
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', gulp.series(gulp.parallel(js, less), watch));
 
 
 
-
-
-function serveTask() {
+function serve() {
     server.start({
         port: 80,
         directory: argv.prod ? './prod' : './app'
     });
 }
 
-function jsTask() {
-    gulp.src('./src/nz-toggle.js')
+function watch() {
+    gulp.watch('./src/**', gulp.parallel(js, less));
+}
+
+function js() {
+    return gulp.src('./src/nz-toggle.js')
         .pipe(ngAnnotate())
         .pipe(gulp.dest('./dist/'))
         .pipe(uglify())
@@ -38,7 +40,7 @@ function jsTask() {
         .pipe(gulp.dest('./dist/'));
 }
 
-function lessTask() {
+function less() {
     gulp.src('./src/nz-toggle.styl')
         .pipe(stylus({
             use: nib()
@@ -52,8 +54,4 @@ function lessTask() {
         }))
         .pipe(rename('nz-toggle.min.css'))
         .pipe(gulp.dest('./dist/'));
-}
-
-function watchTask() {
-    return gulp.watch('./src/**', ['build']);
 }
