@@ -120,14 +120,14 @@
                     }, true);
 
                     // Interaction events
-                    addEventListeners(el[0], 'mousedown touchstart', onToggleTouch);
+                    addEventListeners(el[0], 'mousedown', onToggleTouch);
                     addEventListeners(el[0], 'click', onClick);
 
                     // Cleanup
                     vm.$on('$destroy', function() {
-                        removeEventListeners(el[0], 'mousedown touchstart', onToggleTouch);
-                        removeEventListeners(window, 'mousemove touchmove', onToggleMove);
-                        removeEventListeners(window, 'mouseup touchend', onToggleRelease);
+                        removeEventListeners(el[0], 'mousedown', onToggleTouch);
+                        removeEventListeners(window, 'mousemove', onToggleMove);
+                        removeEventListeners(window, 'mouseup', onToggleRelease);
                         removeEventListeners(el[0], 'click', onClick);
 
                     });
@@ -153,8 +153,8 @@
 
                     elToggle.css('transition', '0s');
 
-                    addEventListeners(window, 'mousemove touchmove', onToggleMove);
-                    addEventListeners(window, 'mouseup touchend', onToggleRelease);
+                    addEventListeners(window, 'mousemove', onToggleMove);
+                    addEventListeners(window, 'mouseup', onToggleRelease);
 
                     e.stopPropagation();
                     e.returnValue = false;
@@ -256,8 +256,8 @@
                         transition: ''
                     });
 
-                    removeEventListeners(window, 'mousemove touchmove', onToggleMove);
-                    removeEventListeners(window, 'mouseup touchend', onToggleRelease);
+                    removeEventListeners(window, 'mousemove', onToggleMove);
+                    removeEventListeners(window, 'mouseup', onToggleRelease);
 
                     e.stopPropagation();
                     e.returnValue = false;
